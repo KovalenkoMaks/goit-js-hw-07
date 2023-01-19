@@ -21,17 +21,21 @@ galleryEl.addEventListener("click", (event) => {
   }
 
   let instance = basicLightbox.create(
-    `<img src="${event.target.dataset.source}" alt="${event.target.alt}">`
+    `<img src="${event.target.dataset.source}" alt="${event.target.alt}">`,
+    {
+      onShow: () => {
+        // console.log("onClose");
+        document.addEventListener("keydown", close);
+      },
+      onClose: () => {
+        document.removeEventListener("keydown", close);
+      },
+    }
   );
   instance.show();
-
-  galleryEl.addEventListener(
-    "keydown",
-    (e) => {
-      if (e.key === "Escape") {
-        instance.close();
-      }
-    },
-    { once: true }
-  );
+  function close(e) {
+    if (e.key === "Escape") {
+      instance.close();
+    }
+  }
 });
