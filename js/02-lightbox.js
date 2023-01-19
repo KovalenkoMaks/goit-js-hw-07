@@ -11,7 +11,5 @@ galleryEl.innerHTML = galleryItems
 const lightbox = new SimpleLightbox(".gallery a", {
   captionDelay: 250,
   // scrollZoomFactor: 0.01,
-  scrollZoom: false,
+  // scrollZoom: false,
 });
-
-//
