@@ -1,6 +1,5 @@
 import { galleryItems } from "./gallery-items.js";
 
-console.log(galleryItems);
 const galleryEl = document.querySelector(".gallery");
 galleryEl.innerHTML = galleryItems
   .map(
@@ -11,4 +10,8 @@ galleryEl.innerHTML = galleryItems
   .join("");
 const lightbox = new SimpleLightbox(".gallery a", {
   captionDelay: 250,
+  // scrollZoomFactor: 0.01,
+  scrollZoom: false,
 });
+
+//
